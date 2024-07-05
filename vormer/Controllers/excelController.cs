@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace vormer.Controllers
 {
@@ -12,9 +13,10 @@ namespace vormer.Controllers
     public class excelController : ControllerBase
     {
         [HttpPost(Name = "upload")]
-        public string Upload()
+        public object Upload([FromForm] ExcelUpload uploadData)
         {
-            return "Hello world";
+            var ExcelConfig = JsonSerializer.Deserialize<ExcelConfig[]>(uploadData.ExcelConfig);
+            return ExcelConfig;
         }
     }
 }
