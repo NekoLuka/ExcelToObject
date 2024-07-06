@@ -5,6 +5,7 @@ namespace vormer
 	{
 		public IFormFile ExcelFile { set; get; }
 		public string ExcelConfig { set; get; }
+		public string ExcelSheetName { set; get; }
 	}
 }
 

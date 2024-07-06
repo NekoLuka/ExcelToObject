@@ -9,6 +9,9 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// This line is needed to support certain file type encodings for excel files
+System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
